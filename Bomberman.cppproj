@@ -67,7 +67,7 @@
   </avrgcc.compiler.symbols.DefSymbols>
   <avrgcc.compiler.directories.IncludePaths>
     <ListValues>
-      <Value>../../../Bomberman</Value>
+      <Value>../../../BombermanArduino</Value>
       <Value>C:/Users/HP/Documents/Arduino/libraries/Adafruit_STMPE610-master</Value>
       <Value>C:/Users/HP/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.21/libraries/Wire/src</Value>
       <Value>C:/Users/HP/Documents/Arduino/libraries/Adafruit_ILI9341-master</Value>
@@ -109,7 +109,7 @@
   </avrgcccpp.compiler.symbols.DefSymbols>
   <avrgcccpp.compiler.directories.IncludePaths>
     <ListValues>
-      <Value>../../../Bomberman</Value>
+      <Value>../../../BombermanArduino</Value>
       <Value>C:/Users/HP/Documents/Arduino/libraries/Adafruit_STMPE610-master</Value>
       <Value>C:/Users/HP/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.21/libraries/Wire/src</Value>
       <Value>C:/Users/HP/Documents/Arduino/libraries/Adafruit_ILI9341-master</Value>
@@ -141,10 +141,10 @@
   <avrgcccpp.assembler.debugging.DebugLevel>Default (-Wa,-g)</avrgcccpp.assembler.debugging.DebugLevel>
 </AvrGccCpp>
     </ToolchainSettings>
-    <VMSETTING_IncludePaths>../../../Bomberman;C:/Program Files (x86)/Arduino/libraries;C:/Users/HP/Documents/Arduino/libraries;C:/Users/HP/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.21/libraries;C:/Users/HP/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.21/cores/arduino;C:/Users/HP/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.21/variants/standard;C:/Users/HP/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/avr/include;C:/Users/HP/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/avr/include/avr;C:/Users/HP/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/lib/gcc/avr/4.8.1/include;C:/Users/HP/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/lib/gcc/avr/4.9.2/include;C:/Users/HP/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/lib/gcc/avr/4.9.3/include;C:/Users/HP/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.21/libraries/SPI/src;C:/Users/HP/Documents/Arduino/libraries/SD/src;C:/Users/HP/Documents/Arduino/libraries/SD/src/utility;C:/Users/HP/Documents/Arduino/libraries/Adafruit_ILI9341-master;C:/Users/HP/Documents/Arduino/libraries/Adafruit-GFX-Library-master;C:/Users/HP/Documents/Arduino/libraries/WiiChuck-0.2.3/src;C:/Users/HP/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.21/libraries/Wire/src;C:/Users/HP/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.21/libraries/Wire/src/utility;C:/Users/HP/Documents/Arduino/libraries/Nunchuck;C:/Users/HP/Documents/Arduino/libraries/Adafruit_STMPE610-master;C:/Users/HP/Documents/Arduino/libraries/Adafruit_TFTLCD;C:/Users/HP/Documents/Arduino/libraries/Adafruit_TouchScreen-master;C:/Users/HP/Documents/Arduino/libraries/Nunchuck wit;C:/Users/HP/Documents/Arduino/libraries/timerone;C:/Users/HP/Documents/Arduino/libraries/LCDtest;C:/Users/HP/Documents/Arduino/libraries/SPItest;</VMSETTING_IncludePaths>
+    <VMSETTING_IncludePaths>../../../Bomberman;C:/Program Files (x86)/Arduino/libraries;C:/Users/HP/Documents/Arduino/libraries;C:/Users/HP/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.21/libraries;C:/Users/HP/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.21/cores/arduino;C:/Users/HP/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.21/variants/standard;C:/Users/HP/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/avr/include;C:/Users/HP/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/avr/include/avr;C:/Users/HP/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/lib/gcc/avr/4.8.1/include;C:/Users/HP/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/lib/gcc/avr/4.9.2/include;C:/Users/HP/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/lib/gcc/avr/4.9.3/include;C:/Users/HP/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.21/libraries/SPI/src;C:/Users/HP/Documents/Arduino/libraries/SD/src;C:/Users/HP/Documents/Arduino/libraries/SD/src/utility;C:/Users/HP/Documents/Arduino/libraries/Adafruit_ILI9341-master;C:/Users/HP/Documents/Arduino/libraries/Adafruit-GFX-Library-master;C:/Users/HP/Documents/Arduino/libraries/WiiChuck-0.2.3/src;C:/Users/HP/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.21/libraries/Wire/src;C:/Users/HP/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.21/libraries/Wire/src/utility;C:/Users/HP/Documents/Arduino/libraries/Nunchuck;C:/Users/HP/Documents/Arduino/libraries/Adafruit_STMPE610-master;C:/Users/HP/Documents/Arduino/libraries/Adafruit_TFTLCD;C:/Users/HP/Documents/Arduino/libraries/Adafruit_TouchScreen-master;C:/Users/HP/Documents/Arduino/libraries/Nunchuck wit;C:/Users/HP/Documents/Arduino/libraries/timerone;C:/Users/HP/Documents/Arduino/libraries/LCDtest;C:/Users/HP/Documents/Arduino/libraries/SPItest;../../../BombermanArduino;</VMSETTING_IncludePaths>
     <VisualMicroSettings>
       <VisualMicroSettings>
-        <arduino.upload.port>COM8</arduino.upload.port>
+        <arduino.upload.port>COM9</arduino.upload.port>
         <arduino.board.name>uno</arduino.board.name>
         <arduino.board.desc>Arduino/Genuino Uno</arduino.board.desc>
         <arduino.board.property_bag>name=Arduino/Genuino Uno
@@ -453,7 +453,7 @@ build.path=C:\Users\HP\AppData\Local\Temp\VMBuilds\Bomberman\uno\Debug
   </avrgcc.compiler.symbols.DefSymbols>
   <avrgcc.compiler.directories.IncludePaths>
     <ListValues>
-      <Value>../../../Bomberman</Value>
+      <Value>../../../BombermanArduino</Value>
       <Value>C:/Users/HP/Documents/Arduino/libraries/Adafruit_STMPE610-master</Value>
       <Value>C:/Users/HP/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.21/libraries/Wire/src</Value>
       <Value>C:/Users/HP/Documents/Arduino/libraries/Adafruit_ILI9341-master</Value>
@@ -495,7 +495,7 @@ build.path=C:\Users\HP\AppData\Local\Temp\VMBuilds\Bomberman\uno\Debug
   </avrgcccpp.compiler.symbols.DefSymbols>
   <avrgcccpp.compiler.directories.IncludePaths>
     <ListValues>
-      <Value>../../../Bomberman</Value>
+      <Value>../../../BombermanArduino</Value>
       <Value>C:/Users/HP/Documents/Arduino/libraries/Adafruit_STMPE610-master</Value>
       <Value>C:/Users/HP/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.21/libraries/Wire/src</Value>
       <Value>C:/Users/HP/Documents/Arduino/libraries/Adafruit_ILI9341-master</Value>
@@ -527,10 +527,10 @@ build.path=C:\Users\HP\AppData\Local\Temp\VMBuilds\Bomberman\uno\Debug
   <avrgcccpp.assembler.debugging.DebugLevel>Default (-Wa,-g)</avrgcccpp.assembler.debugging.DebugLevel>
 </AvrGccCpp>
     </ToolchainSettings>
-    <VMSETTING_IncludePaths>../../../Bomberman;C:/Program Files (x86)/Arduino/libraries;C:/Users/HP/Documents/Arduino/libraries;C:/Users/HP/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.21/libraries;C:/Users/HP/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.21/cores/arduino;C:/Users/HP/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.21/variants/standard;C:/Users/HP/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/avr/include;C:/Users/HP/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/avr/include/avr;C:/Users/HP/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/lib/gcc/avr/4.8.1/include;C:/Users/HP/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/lib/gcc/avr/4.9.2/include;C:/Users/HP/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/lib/gcc/avr/4.9.3/include;C:/Users/HP/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.21/libraries/SPI/src;C:/Users/HP/Documents/Arduino/libraries/SD/src;C:/Users/HP/Documents/Arduino/libraries/SD/src/utility;C:/Users/HP/Documents/Arduino/libraries/Adafruit_ILI9341-master;C:/Users/HP/Documents/Arduino/libraries/Adafruit-GFX-Library-master;C:/Users/HP/Documents/Arduino/libraries/WiiChuck-0.2.3/src;C:/Users/HP/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.21/libraries/Wire/src;C:/Users/HP/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.21/libraries/Wire/src/utility;C:/Users/HP/Documents/Arduino/libraries/Nunchuck;C:/Users/HP/Documents/Arduino/libraries/Adafruit_STMPE610-master;C:/Users/HP/Documents/Arduino/libraries/Adafruit_TFTLCD;C:/Users/HP/Documents/Arduino/libraries/Adafruit_TouchScreen-master;C:/Users/HP/Documents/Arduino/libraries/Nunchuck wit;C:/Users/HP/Documents/Arduino/libraries/timerone;C:/Users/HP/Documents/Arduino/libraries/LCDtest;C:/Users/HP/Documents/Arduino/libraries/SPItest;</VMSETTING_IncludePaths>
+    <VMSETTING_IncludePaths>../../../Bomberman;C:/Program Files (x86)/Arduino/libraries;C:/Users/HP/Documents/Arduino/libraries;C:/Users/HP/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.21/libraries;C:/Users/HP/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.21/cores/arduino;C:/Users/HP/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.21/variants/standard;C:/Users/HP/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/avr/include;C:/Users/HP/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/avr/include/avr;C:/Users/HP/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/lib/gcc/avr/4.8.1/include;C:/Users/HP/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/lib/gcc/avr/4.9.2/include;C:/Users/HP/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/lib/gcc/avr/4.9.3/include;C:/Users/HP/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.21/libraries/SPI/src;C:/Users/HP/Documents/Arduino/libraries/SD/src;C:/Users/HP/Documents/Arduino/libraries/SD/src/utility;C:/Users/HP/Documents/Arduino/libraries/Adafruit_ILI9341-master;C:/Users/HP/Documents/Arduino/libraries/Adafruit-GFX-Library-master;C:/Users/HP/Documents/Arduino/libraries/WiiChuck-0.2.3/src;C:/Users/HP/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.21/libraries/Wire/src;C:/Users/HP/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.21/libraries/Wire/src/utility;C:/Users/HP/Documents/Arduino/libraries/Nunchuck;C:/Users/HP/Documents/Arduino/libraries/Adafruit_STMPE610-master;C:/Users/HP/Documents/Arduino/libraries/Adafruit_TFTLCD;C:/Users/HP/Documents/Arduino/libraries/Adafruit_TouchScreen-master;C:/Users/HP/Documents/Arduino/libraries/Nunchuck wit;C:/Users/HP/Documents/Arduino/libraries/timerone;C:/Users/HP/Documents/Arduino/libraries/LCDtest;C:/Users/HP/Documents/Arduino/libraries/SPItest;../../../BombermanArduino;</VMSETTING_IncludePaths>
     <VisualMicroSettings>
       <VisualMicroSettings>
-        <arduino.upload.port>COM8</arduino.upload.port>
+        <arduino.upload.port>COM9</arduino.upload.port>
         <arduino.board.name>uno</arduino.board.name>
         <arduino.board.desc>Arduino/Genuino Uno</arduino.board.desc>
         <arduino.board.property_bag>name=Arduino/Genuino Uno
@@ -824,6 +824,9 @@ build.path=C:\Users\HP\AppData\Local\Temp\VMBuilds\Bomberman\uno\Debug
   </ItemGroup>
   <ItemGroup>
     <Compile Include="__vm\.Bomberman.vsarduino.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="__vm\.BombermanArduino.vsarduino.h">
       <SubType>compile</SubType>
     </Compile>
   </ItemGroup>
