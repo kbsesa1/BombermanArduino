@@ -63,8 +63,8 @@ int column=1;       // de start locatie van de chacacter in de grid tenopzichte 
 unsigned long startMillis;  // houd bij wanneer de bomb word geplaatst.
 unsigned long bombtimer;  // houd bij hoelang de bomb op de grond ligt.
 
-unsigned long startedAt;  // Hoeveel miliseconden is er op moment van aanroepen verstreken.
-unsigned long howLong;    // Hoelang er word gewacht totdat we verder gaan.
+//unsigned long startedAt;  // Hoeveel miliseconden is er op moment van aanroepen verstreken.
+//unsigned long howLong;    // Hoelang er word gewacht totdat we verder gaan.
 
 int direction;        // welke direction de joystick naar toe word geduwt. 
 
@@ -76,8 +76,24 @@ int direction;        // welke direction de joystick naar toe word geduwt.
 int p2row= 9;
 int p2column =13;
 
-int p2x=200;         // de start x waarde van de character.
-int p2y=270;         // de start y waarde van de character.
+int p2x=200;         // de start x waarde van de tweede character.
+int p2y=270;         // de start y waarde van de  tweede character.
+
+int p2brow ;          // de locatie van de tweede bomb in de grid tenopzichte van de y as.
+int p2bcolumn;        // de locatie van de tweede bomb in de grid tenopzichte van de x as.
+
+int p2bx;           // bx is de x coordinaat van de tweede geplaatste bomb.
+int p2by;           // by is de y coordinaat van de tweede geplaatste bomb.
+
+
+boolean p2boem = false;   // checkt of de geplaatste bomb al is ontploft.
+boolean p2bombdown = false; // checkt of de speler aan een bomb heeft geplaatst.
+
+unsigned long p2startMillis;  // houd bij wanneer de bomb word geplaatst.
+unsigned long p2bombtimer;  // houd bij hoelang de bomb op de grond ligt.
+
+unsigned long p2startedAt;  // Hoeveel miliseconden is er op moment van aanroepen verstreken.
+unsigned long p2howLong;    // Hoelang er word gewacht totdat we verder gaan.
 
 
 
@@ -146,8 +162,9 @@ nunchuk.update();
   y=y-20;                       // Zet de coordinaten van de character 20 naar links.
   column=column-1;                  // Past de postie van de character aan op de grid.
   }
-}
+    direction=4;
 
+}
 
 void rechts(){
   nunchuk.update();
@@ -163,6 +180,7 @@ void rechts(){
   y=y+20;                       // Zet de coordinaten van de character 20 naar links.
   column=column+1;                  // Past de postie van de character aan op de grid.
   }
+  direction=4;
 }
 
 void omhoog(){
@@ -179,6 +197,8 @@ if (grid[row-1][column]==0 || grid[row-1][column]==4 ){ // Checkt of op de posti
   x=x-20;                       // Zet de coordinaten van de character 20 omhoog.
   row=row-1;                      // Past de postie van de character aan op de grid.
   }
+    direction=4;
+
 }
 
 void omlaag(){
@@ -196,6 +216,8 @@ void omlaag(){
   x=x+20;                         // Zet de coordinaten van de character 20 omlaag.
   row=row+1;                        // Past de postie van de character aan op de grid.
 }
+  direction=4;
+
 }
 
 void bomb(){
@@ -310,7 +332,36 @@ void map(){
     }
     bombtime();
   }
+  
+  
+    	
+    if(p2bombdown==false){  // Checkt of de z knop is ingedrukt en dat er nog geen bomb op de grond ligt.
+	    grid[p2row][p2column]=3;          // Zet op de positie van de character in de grid een bomb
+	    tft.fillRect(p2y,p2x, 20, 20, YELLOW);    // Teken de bomb
+	    //p2startMillis = millis();         // Onthou wanneer de bomb is geplaatst
+	    p2boem=true;                // De bomb is down
+	    p2brow=row;               // Sla de coordinaten van de bomb op in nieuwe varriabelen
+	    p2bcolumn=column;             // Sla de coordinaten van de bomb op in nieuwe varriabelen
+	    p2bx=x;
+	    p2by=y;
+	    p2bombdown=true;              // bombdown betekent dat er niet nog een bomb down mag
+    	}
+
+    	if ((p2startMillis + 2000  <= millis())  && boem==true )
+    	{
+	    	p2bomb();
+    	}
+
+    	if (grid[p2row][p2column]==4)                   //Als de character in de grid op 4(explosie) staat, gaat de character dood
+    	{
+	    	life=false;                         //Life word false
+	    	scherm = Winner;
+    	}
+    	p2bombtime();
+    	
+    
 }
+  
 
 //Eigen delay functie
 void wait (unsigned long howLong)
@@ -486,7 +537,7 @@ void p2rechts(){
 }
 
 void p2omhoog(){
-	nunchuk.update();
+	
 	if (grid[p2row-1][p2column]==0 || grid[p2row-1][p2column]==4 ){ // Checkt of op de postie boven de character niks of een bom explosie zit.
 		
 		tft.fillRect(p2y,p2x-20, 20, 20, GREEN);        // Tekent de character 20 pixels omhoog.
@@ -502,10 +553,8 @@ void p2omhoog(){
 }
 
 void p2omlaag(){
-	nunchuk.update();
 	if (grid[p2row+1][p2column]==0 || grid[p2row+1][p2column]==4 )  // Checkt of op de postie onder de character niks of een bom explosie zit.
 	{
-		
 		tft.fillRect(p2y,p2x+20, 20, 20, GREEN);          // Tekent de character 20 pixels omlaag.
 		
 		if (grid[p2row][p2column]!=3)                // Als er op de positie waar de character vandaan komt geen bomb ligt, teken dan dat vlak zwart.
@@ -515,5 +564,63 @@ void p2omlaag(){
 
 		p2x=p2x+20;                         // Zet de coordinaten van de character 20 omlaag.
 		p2row=p2row+1;                        // Past de postie van de character aan op de grid.
+	}
+}
+
+
+//ontvanged bomb
+
+
+
+void p2bomb(){
+
+	grid[p2brow][p2bcolumn]=4;
+
+	if (grid[p2brow-1][p2bcolumn]!=1)
+	{
+		tft.fillRect(p2by,p2bx-20, 20, 20, YELLOW);
+		grid[p2brow-1][p2bcolumn]=4;
+
+	}
+
+	
+	if (grid[p2brow][(p2bcolumn+1)]!=1)
+	{
+		tft.fillRect(p2by+20,p2bx, 20, 20, YELLOW);
+		grid[p2brow][p2bcolumn+1]=4;
+
+	}
+	
+	if (grid[(p2brow+1)][p2bcolumn]!=1)
+	{
+		
+		tft.fillRect(p2by,p2bx+20, 20, 20, YELLOW);
+		grid[p2brow+1][p2bcolumn]=4;
+		
+	}
+	
+	if (grid[p2brow][(p2bcolumn-1)]!=1)
+	{
+		
+		tft.fillRect(p2by-20,p2bx, 20, 20, YELLOW);
+		grid[p2brow][p2bcolumn-1]=4;
+	}
+	p2boem=false;
+	//p2bombtimer = millis();
+}
+
+
+void p2bombtime(){
+	if ((p2bombtimer + 1500)  <= millis() && p2boem==false)
+	{
+		for (int i = 0; i < 11; i++ ) {
+			for (int j = 0; j < 15; j++ ) {
+				if(grid[i][j] ==3 || grid[i][j] == 4 ){
+					grid[i][j]=0;
+					tft.fillRect((j*20)+10,(i*20)+20, 20, 20, BLACK);
+				}
+			}
+		}
+		p2bombdown=false;
 	}
 }
