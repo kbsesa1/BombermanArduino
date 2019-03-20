@@ -63,8 +63,8 @@ int column=1;       // de start locatie van de chacacter in de grid tenopzichte 
 unsigned long startMillis;  // houd bij wanneer de bomb word geplaatst.
 unsigned long bombtimer;  // houd bij hoelang de bomb op de grond ligt.
 
-//unsigned long startedAt;  // Hoeveel miliseconden is er op moment van aanroepen verstreken.
-//unsigned long howLong;    // Hoelang er word gewacht totdat we verder gaan.
+unsigned long startedAt;  // Hoeveel miliseconden is er op moment van aanroepen verstreken.
+unsigned long howLong;    // Hoelang er word gewacht totdat we verder gaan.
 
 int direction;        // welke direction de joystick naar toe word geduwt. 
 
@@ -92,9 +92,6 @@ boolean p2bombdown = false; // checkt of de speler aan een bomb heeft geplaatst.
 unsigned long p2startMillis;  // houd bij wanneer de bomb word geplaatst.
 unsigned long p2bombtimer;  // houd bij hoelang de bomb op de grond ligt.
 
-unsigned long p2startedAt;  // Hoeveel miliseconden is er op moment van aanroepen verstreken.
-unsigned long p2howLong;    // Hoelang er word gewacht totdat we verder gaan.
-
 
 
    // |rows  >column
@@ -106,8 +103,8 @@ int grid[ 11  ][ 15 ] = {
   {1, 0,0,2,0,2,0,2,0,2,0,2,0,0, 1},  //2=crate
   {1, 0,1,0,1,0,1,0,1,0,1,0,1,0, 1},  //3=bomb
   {1, 2,0,2,0,2,0,2,0,2,0,2,0,2, 1},  //4=explosion
-  {1, 0,1,0,1,0,1,0,1,0,1,0,1,0, 1},
-  {1, 2,0,2,0,2,0,2,0,2,0,2,0,2, 1},
+  {1, 0,1,0,1,0,1,0,1,0,1,0,1,0, 1},  //6=p2bomb
+  {1, 2,0,2,0,2,0,2,0,2,0,2,0,2, 1},  //7=p2explosie
   {1, 0,1,0,1,0,1,0,1,0,1,0,1,0, 1},
   {1, 2,0,2,0,2,0,2,0,2,0,2,0,2, 1},
   {1, 0,1,0,1,0,1,0,1,0,1,0,1,0, 1},
@@ -146,7 +143,6 @@ void text_button(int x,int y, int z, String text){  // De functie om een button 
   tft.setTextColor(BLACK);            // Zet de kleur van tekst op zwart 
   tft.setTextSize(z);
   tft.println(text);
-  
 }
 
 void links(){
@@ -301,14 +297,24 @@ void map(){
     else if(nunchuk.analogX < 65 && nunchuk.analogY >100 && nunchuk.analogY <180 ) direction = 3 ;
 
 
-    if(direction == 0 ) omhoog();
-    if(direction == 2 ) omlaag();
-    if(direction == 1 ) rechts();
-    if(direction == 3 ) links();
+    if(direction == 0 ) 
+	{
+		omhoog();
+	}
+    if(direction == 2 )
+	{
+		 omlaag();
+	}	 
+    if(direction == 1 ) {
+		rechts();
+	}
+    if(direction == 3 ){ 
+		links();
+	}
     
     
     if(nunchuk.zButton==1 && bombdown==false){  // Checkt of de z knop is ingedrukt en dat er nog geen bomb op de grond ligt.
-      grid[row][column]=3;          // Zet op de positie van de character in de grid een bomb 
+	  grid[row][column]=3;          // Zet op de positie van de character in de grid een bomb 
       tft.fillRect(y,x, 20, 20, YELLOW);    // Teken de bomb
       startMillis = millis();         // Onthou wanneer de bomb is geplaatst
       boem=true;                // De bomb is down
@@ -325,42 +331,59 @@ void map(){
       bomb();
     }
     
-    if (grid[row][column]==4)                   //Als de character in de grid op 4(explosie) staat, gaat de character dood 
+    if (grid[row][column]==4 || grid[row][column]== 7)                   //Als de character in de grid op 4(explosie) staat, gaat de character dood 
     {                   
       life=false;                         //Life word false 
       scherm = Death;
     }
-    bombtime();
-  }
-  
-  
-    	
-    if(p2bombdown==false){  // Checkt of de z knop is ingedrukt en dat er nog geen bomb op de grond ligt.
-	    grid[p2row][p2column]=3;          // Zet op de positie van de character in de grid een bomb
-	    tft.fillRect(p2y,p2x, 20, 20, YELLOW);    // Teken de bomb
-	    p2startMillis = millis();         // Onthou wanneer de bomb is geplaatst
-	    p2boem=true;                // De bomb is down
-	    p2brow=row;               // Sla de coordinaten van de bomb op in nieuwe varriabelen
-	    p2bcolumn=column;             // Sla de coordinaten van de bomb op in nieuwe varriabelen
-	    p2bx=x;
-	    p2by=y;
-	    p2bombdown=true;              // bombdown betekent dat er niet nog een bomb down mag
-    	}
-
-    	if ((p2startMillis + 2000  <= millis())  && boem==true )
-    	{
-	    	p2bomb();
+   
+	
+		if ((bombtimer + 1500)  <= millis() && boem==false)
+		{
+			for (int i = 0; i < 11; i++ ) {
+				for (int j = 0; j < 15; j++ ) {
+					if(grid[i][j] ==3 || grid[i][j] == 4 ){
+						grid[i][j]=0;
+						tft.fillRect((j*20)+10,(i*20)+20, 20, 20, BLACK);
+					}
+				}
+			}
+			bombdown=false;
 		}
 
-    	if (grid[p2row][p2column]==4)                   //Als de character in de grid op 4(explosie) staat, gaat de character dood
-    	{
-	    	life=false;                         //Life word false
-	    	scherm = Winner;
-    	}
-    	p2bombtime();
-    	
-    
+	
+	 //////////////////////////////////////////////////////////////////////////
+	 //player2
+	 //////////////////////////////////////////////////////////////////////////
+	
+	 if ((p2bombtimer + 1500)  <= millis() && p2boem==false)
+	 {
+		 for (int i = 0; i < 11; i++ ) {
+			 for (int j = 0; j < 15; j++ ) {
+				 if(grid[i][j] ==6 || grid[i][j] == 7 ){
+					 grid[i][j]=0;
+					 tft.fillRect((j*20)+10,(i*20)+20, 20, 20, BLACK);
+				 }
+			 }
+		 }
+		 p2bombdown=false;
+	 }
+	
+	  if (grid[p2row][p2column]==4 || grid[p2row][p2column]==7 )                   //Als de character in de grid op 4(explosie) of 7(p2explosie) staat, gaat de character dood
+	  {
+		  life=false;                         //Life word false
+		  scherm = Winner;
+	  }
+	  
+	  if ((p2startMillis + 2000  <= millis())  && p2boem==true )
+	  {
+		  Serial.print("p2bomb");
+		  p2bomb();
+	  }
+	  
+	}
 }
+  
   
 
 //Eigen delay functie
@@ -370,6 +393,8 @@ void wait (unsigned long howLong)
   while(millis() - startedAt < howLong)
   {
 	  
+	  //JOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOST
+  
   }
 }
 
@@ -508,13 +533,14 @@ void loop(){
 }
 
 
-
+//////////////////////////////////////////////////////////////////////////
 //PLAYER2
+//////////////////////////////////////////////////////////////////////////
 void p2links(){
 	//if(ontvanged links van player 2){
-	if (grid[p2row][p2column-1]==0 || grid[p2row][p2column-1]== 4) // Checkt of op de postie links van de character niks of een bom explosie zit.
+	if (grid[p2row][p2column-1]==0 || grid[p2row][p2column-1]== 4 || grid[p2row][p2column-1]== 7) // Checkt of op de postie links van de character niks of een bom explosie zit.
 	{
-		tft.fillRect(p2y-20,p2x, 20, 20, GREEN);         // Tekent de character 20 pixels verder naar links.
+		tft.fillRect(p2y-20,p2x, 20, 20, BLUE);         // Tekent de character 20 pixels verder naar links.
 
 		if (grid[p2row][p2column]!=3)                // Als er op de positie waar de character vandaan komt geen bomb ligt, teken dan dat vlak zwart.
 		{
@@ -528,9 +554,9 @@ void p2links(){
 }
 
 void p2rechts(){
-	if (grid[p2row][p2column+1]==0 || grid[p2row][p2column+1]==4) // Checkt of op de postie rechts van de character niks of een bom explosie zit.
+	if (grid[p2row][p2column+1]==0 || grid[p2row][p2column+1]==4 || grid[p2row][p2column+1]==7) // Checkt of op de postie rechts van de character niks of een bom explosie zit.
 	{
-		tft.fillRect(p2y+20,p2x, 20, 20, GREEN);       // Tekent de character 20 pixels verder naar links.
+		tft.fillRect(p2y+20,p2x, 20, 20, BLUE);       // Tekent de character 20 pixels verder naar links.
 		
 		if (grid[p2row][p2column]!=3)             // Als er op de positie waar de character vandaan komt geen bomb ligt, teken dan dat vlak zwart.
 		{
@@ -544,9 +570,9 @@ void p2rechts(){
 
 void p2omhoog(){
 	
-	if (grid[p2row-1][p2column]==0 || grid[p2row-1][p2column]==4 ){ // Checkt of op de postie boven de character niks of een bom explosie zit.
+	if (grid[p2row-1][p2column]==0 || grid[p2row-1][p2column]==4 || grid[p2row-1][p2column]==7 ){ // Checkt of op de postie boven de character niks of een bom explosie zit.
 		
-		tft.fillRect(p2y,p2x-20, 20, 20, GREEN);        // Tekent de character 20 pixels omhoog.
+		tft.fillRect(p2y,p2x-20, 20, 20, BLUE);        // Tekent de character 20 pixels omhoog.
 		
 		if (grid[p2row][p2column]!=3)             // Als er op de positie waar de character vandaan komt geen bomb ligt, teken dan dat vlak zwart.
 		{
@@ -559,9 +585,9 @@ void p2omhoog(){
 }
 
 void p2omlaag(){
-	if (grid[p2row+1][p2column]==0 || grid[p2row+1][p2column]==4 )  // Checkt of op de postie onder de character niks of een bom explosie zit.
+	if (grid[p2row+1][p2column]==0 || grid[p2row+1][p2column]==4 || grid[p2row+1][p2column]==7 )  // Checkt of op de postie onder de character niks of een bom explosie zit.
 	{
-		tft.fillRect(p2y,p2x+20, 20, 20, GREEN);          // Tekent de character 20 pixels omlaag.
+		tft.fillRect(p2y,p2x+20, 20, 20, BLUE);          // Tekent de character 20 pixels omlaag.
 		
 		if (grid[p2row][p2column]!=3)                // Als er op de positie waar de character vandaan komt geen bomb ligt, teken dan dat vlak zwart.
 		{
@@ -576,54 +602,54 @@ void p2omlaag(){
 
 //ontvanged bomb
 void p2bomb(){
-
-	grid[p2brow][p2bcolumn]=4;
+	
+	Serial.print("/n explosie");
+	
+	grid[p2brow][p2bcolumn]=6;
 
 	if (grid[p2brow-1][p2bcolumn]!=1)
 	{
+		Serial.print("fillRect");
 		tft.fillRect(p2by,p2bx-20, 20, 20, YELLOW);
-		grid[p2brow-1][p2bcolumn]=4;
-
+		grid[p2brow-1][p2bcolumn]=7;
 	}
 
 	
 	if (grid[p2brow][(p2bcolumn+1)]!=1)
 	{
 		tft.fillRect(p2by+20,p2bx, 20, 20, YELLOW);
-		grid[p2brow][p2bcolumn+1]=4;
-
+		grid[p2brow][p2bcolumn+1]=7;
 	}
 	
 	if (grid[(p2brow+1)][p2bcolumn]!=1)
 	{
-		
 		tft.fillRect(p2by,p2bx+20, 20, 20, YELLOW);
-		grid[p2brow+1][p2bcolumn]=4;
-		
+		grid[p2brow+1][p2bcolumn]=7;
 	}
 	
 	if (grid[p2brow][(p2bcolumn-1)]!=1)
 	{
-		
 		tft.fillRect(p2by-20,p2bx, 20, 20, YELLOW);
-		grid[p2brow][p2bcolumn-1]=4;
+		grid[p2brow][p2bcolumn-1]=7;
 	}
+	
 	p2boem=false;
 	p2bombtimer = millis();
 }
 
-
-void p2bombtime(){
-	if ((p2bombtimer + 1500)  <= millis() && p2boem==false)
-	{
-		for (int i = 0; i < 11; i++ ) {
-			for (int j = 0; j < 15; j++ ) {
-				if(grid[i][j] ==3 || grid[i][j] == 4 ){
-					grid[i][j]=0;
-					tft.fillRect((j*20)+10,(i*20)+20, 20, 20, BLACK);
-				}
-			}
-		}
-		p2bombdown=false;
+void p2bombneer(){
+	Serial.print("p2bombneer");
+	if(p2bombdown==false){				// Checkt of de z knop is ingedrukt en dat er nog geen bomb op de grond ligt.
+		Serial.print("p2bombneerFalse");
+		grid[p2row][p2column]=6;        // Zet op de positie van de character in de grid een bomb
+		tft.fillRect(p2y,p2x, 20, 20, YELLOW);    // Teken de bomb
+		p2startMillis = millis();       // Onthou wanneer de bomb is geplaatst
+		p2boem=true;					// De bomb is down
+		p2brow=p2row;						// Sla de coordinaten van de bomb op in nieuwe varriabelen
+		p2bcolumn=p2column;				// Sla de coordinaten van de bomb op in nieuwe varriabelen
+		p2bx=p2x;
+		p2by=p2y;
+		p2bombdown=true;				// bombdown betekent dat er niet nog een bomb down mag
+		Serial.print("p2bombtrue");
 	}
 }

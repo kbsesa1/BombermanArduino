@@ -35,7 +35,7 @@ void p2rechts();
 void p2omhoog();
 void p2omlaag();
 void p2bomb();
-void p2bombtime();
+void p2bombneer();
 
 #include "pins_arduino.h" 
 #include "arduino.h"
