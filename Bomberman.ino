@@ -296,7 +296,6 @@ void map(){
     else if(nunchuk.analogX >  180 && nunchuk.analogY >100 && nunchuk.analogY <180 ) direction = 1;
     else if(nunchuk.analogX < 65 && nunchuk.analogY >100 && nunchuk.analogY <180 ) direction = 3 ;
 
-
     if(direction == 0 ) 
 	{
 		omhoog();
@@ -311,8 +310,7 @@ void map(){
     if(direction == 3 ){ 
 		links();
 	}
-    
-    
+        
     if(nunchuk.zButton==1 && bombdown==false){  // Checkt of de z knop is ingedrukt en dat er nog geen bomb op de grond ligt.
 	  grid[row][column]=3;          // Zet op de positie van de character in de grid een bomb 
       tft.fillRect(y,x, 20, 20, YELLOW);    // Teken de bomb
@@ -333,8 +331,9 @@ void map(){
     
     if (grid[row][column]==4 || grid[row][column]== 7)                   //Als de character in de grid op 4(explosie) staat, gaat de character dood 
     {                   
-      life=false;                         //Life word false 
       scherm = Death;
+	  life=false;                         //Life word false
+
     }
    
 	
@@ -371,8 +370,8 @@ void map(){
 	
 	  if (grid[p2row][p2column]==4 || grid[p2row][p2column]==7 )                   //Als de character in de grid op 4(explosie) of 7(p2explosie) staat, gaat de character dood
 	  {
-		  life=false;                         //Life word false
 		  scherm = Winner;
+		  life=false;                         //Life word false
 	  }
 	  
 	  if ((p2startMillis + 2000  <= millis())  && p2boem==true )
@@ -509,6 +508,8 @@ void loop(){
         tft.fillScreen(MAGENTA);
         tft.fillRect(12, 182, 76, 32, YELLOW);                  //*Back knop
         text_button(40, 195, 1, "Back");
+		text_button(90, 80, 4, "WINNER");
+
         if (p.x >= 45 && p.x <= 70 && p.y >= 15 && p.y <= 60 ) {        //Home tekenen bij *Back
           zwart = 0;
           rdy_1 = 0;
@@ -522,6 +523,8 @@ void loop(){
         tft.fillScreen(RED);
         tft.fillRect(12, 182, 76, 32, YELLOW);                  //*Back knop
         text_button(40, 195, 1, "Back");
+		text_button(60, 80, 4, "YOU LOSE");
+
         if (p.x >= 45 && p.x <= 70 && p.y >= 15 && p.y <= 60 ) {        //Home tekenen bij *Back
           zwart = 0;
           rdy_1 = 0;
