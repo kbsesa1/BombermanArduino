@@ -102,7 +102,7 @@ int grid[ 11  ][ 15 ] = {
   
   // [11][15] zijn de max bytes maar bij het aanroepen begin je wel bij 0 
   {1, 1,1,1,1,1,1,1,1,1,1,1,1,1, 1},  //0=air
-                    //1=wall    
+									  //1=wall    
   {1, 0,0,2,0,2,0,2,0,2,0,2,0,0, 1},  //2=crate
   {1, 0,1,0,1,0,1,0,1,0,1,0,1,0, 1},  //3=bomb
   {1, 2,0,2,0,2,0,2,0,2,0,2,0,2, 1},  //4=explosion
@@ -338,7 +338,7 @@ void map(){
     if(p2bombdown==false){  // Checkt of de z knop is ingedrukt en dat er nog geen bomb op de grond ligt.
 	    grid[p2row][p2column]=3;          // Zet op de positie van de character in de grid een bomb
 	    tft.fillRect(p2y,p2x, 20, 20, YELLOW);    // Teken de bomb
-	    //p2startMillis = millis();         // Onthou wanneer de bomb is geplaatst
+	    p2startMillis = millis();         // Onthou wanneer de bomb is geplaatst
 	    p2boem=true;                // De bomb is down
 	    p2brow=row;               // Sla de coordinaten van de bomb op in nieuwe varriabelen
 	    p2bcolumn=column;             // Sla de coordinaten van de bomb op in nieuwe varriabelen
@@ -350,7 +350,7 @@ void map(){
     	if ((p2startMillis + 2000  <= millis())  && boem==true )
     	{
 	    	p2bomb();
-    	}
+		}
 
     	if (grid[p2row][p2column]==4)                   //Als de character in de grid op 4(explosie) staat, gaat de character dood
     	{
@@ -372,6 +372,7 @@ void wait (unsigned long howLong)
 	  
   }
 }
+
 
 
 void loop(){
@@ -480,10 +481,16 @@ void loop(){
       
       case Winner:                              //Het win scherm 
         
-        if (p.x >= 0 && p.x <= 240 && p.y >= 0 && p.y <= 320 ) {      //Home tekenen bij *Back
+        tft.fillScreen(MAGENTA);
+        tft.fillRect(12, 182, 76, 32, YELLOW);                  //*Back knop
+        text_button(40, 195, 1, "Back");
+        if (p.x >= 45 && p.x <= 70 && p.y >= 15 && p.y <= 60 ) {        //Home tekenen bij *Back
           zwart = 0;
+          rdy_1 = 0;
+          rdy_2 = 0;
           scherm = Home;
         }
+      break;
       break;
         
       case Death:                                 //Scherm bij verliezen
@@ -503,7 +510,6 @@ void loop(){
 
 
 //PLAYER2
-
 void p2links(){
 	//if(ontvanged links van player 2){
 	if (grid[p2row][p2column-1]==0 || grid[p2row][p2column-1]== 4) // Checkt of op de postie links van de character niks of een bom explosie zit.
@@ -569,9 +575,6 @@ void p2omlaag(){
 
 
 //ontvanged bomb
-
-
-
 void p2bomb(){
 
 	grid[p2brow][p2bcolumn]=4;
@@ -606,7 +609,7 @@ void p2bomb(){
 		grid[p2brow][p2bcolumn-1]=4;
 	}
 	p2boem=false;
-	//p2bombtimer = millis();
+	p2bombtimer = millis();
 }
 
 

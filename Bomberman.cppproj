@@ -74,6 +74,7 @@
       <Value>C:/Users/HP/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.21/libraries/SPI/src</Value>
       <Value>C:/Users/HP/Documents/Arduino/libraries/Adafruit-GFX-Library-master</Value>
       <Value>C:/Users/HP/Documents/Arduino/libraries/Nunchuck</Value>
+      <Value>C:/Users/HP/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.21/libraries/Wire/src/utility</Value>
       <Value>C:/Program Files (x86)/Arduino/libraries</Value>
       <Value>C:/Users/HP/Documents/Arduino/libraries</Value>
       <Value>C:/Users/HP/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.21/libraries</Value>
@@ -116,6 +117,7 @@
       <Value>C:/Users/HP/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.21/libraries/SPI/src</Value>
       <Value>C:/Users/HP/Documents/Arduino/libraries/Adafruit-GFX-Library-master</Value>
       <Value>C:/Users/HP/Documents/Arduino/libraries/Nunchuck</Value>
+      <Value>C:/Users/HP/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.21/libraries/Wire/src/utility</Value>
       <Value>C:/Program Files (x86)/Arduino/libraries</Value>
       <Value>C:/Users/HP/Documents/Arduino/libraries</Value>
       <Value>C:/Users/HP/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.21/libraries</Value>
@@ -460,6 +462,7 @@ build.path=C:\Users\HP\AppData\Local\Temp\VMBuilds\Bomberman\uno\Debug
       <Value>C:/Users/HP/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.21/libraries/SPI/src</Value>
       <Value>C:/Users/HP/Documents/Arduino/libraries/Adafruit-GFX-Library-master</Value>
       <Value>C:/Users/HP/Documents/Arduino/libraries/Nunchuck</Value>
+      <Value>C:/Users/HP/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.21/libraries/Wire/src/utility</Value>
       <Value>C:/Program Files (x86)/Arduino/libraries</Value>
       <Value>C:/Users/HP/Documents/Arduino/libraries</Value>
       <Value>C:/Users/HP/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.21/libraries</Value>
@@ -502,6 +505,7 @@ build.path=C:\Users\HP\AppData\Local\Temp\VMBuilds\Bomberman\uno\Debug
       <Value>C:/Users/HP/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.21/libraries/SPI/src</Value>
       <Value>C:/Users/HP/Documents/Arduino/libraries/Adafruit-GFX-Library-master</Value>
       <Value>C:/Users/HP/Documents/Arduino/libraries/Nunchuck</Value>
+      <Value>C:/Users/HP/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.21/libraries/Wire/src/utility</Value>
       <Value>C:/Program Files (x86)/Arduino/libraries</Value>
       <Value>C:/Users/HP/Documents/Arduino/libraries</Value>
       <Value>C:/Users/HP/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.21/libraries</Value>

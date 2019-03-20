@@ -11,20 +11,12 @@
 #define __AVR_ATmega328p__
 #define __AVR_ATmega328P__
 #define _VMDEBUG 1
-<<<<<<< HEAD
-#define ARDUINO 10802
-=======
 #define ARDUINO 10805
->>>>>>> Tussen
 #define ARDUINO_MAIN
 #define F_CPU 16000000L
 #define __AVR__
 #define F_CPU 16000000L
-<<<<<<< HEAD
-#define ARDUINO 10802
-=======
 #define ARDUINO 10805
->>>>>>> Tussen
 #define ARDUINO_AVR_UNO
 #define ARDUINO_ARCH_AVR
 void setup(void);
@@ -42,11 +34,8 @@ void p2links();
 void p2rechts();
 void p2omhoog();
 void p2omlaag();
-<<<<<<< HEAD
-=======
 void p2bomb();
 void p2bombtime();
->>>>>>> Tussen
 
 #include "pins_arduino.h" 
 #include "arduino.h"
