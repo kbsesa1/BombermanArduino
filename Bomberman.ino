@@ -66,7 +66,7 @@ unsigned long bombtimer;  // houd bij hoelang de bomb op de grond ligt.
 unsigned long startedAt;  // Hoeveel miliseconden is er op moment van aanroepen verstreken.
 unsigned long howLong;    // Hoelang er word gewacht totdat we verder gaan.
 
-int direction;        // welke direction de joystick naar toe word geduwt. 
+int direction = 4;        // welke direction de joystick naar toe word geduwt. 
 
 
 
