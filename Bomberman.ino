@@ -1,8 +1,10 @@
 #include <Adafruit_STMPE610.h>  // touchscreen driver
 #include <Adafruit_ILI9341.h> // Scherm driver
 #include <ArduinoNunchuk.h>     // Nunchuck libary
+#include <irComm2.h> // IR library
 #include <SPI.h>
 
+IR ir = IR(1);//0 is voor 38 KHz zenden en 1 is voor 56KHz zenden
 
 #define SD_CS 4
 
@@ -92,6 +94,9 @@ boolean p2bombdown = false; // checkt of de speler aan een bomb heeft geplaatst.
 unsigned long p2startMillis;  // houd bij wanneer de bomb word geplaatst.
 unsigned long p2bombtimer;  // houd bij hoelang de bomb op de grond ligt.
 
+unsigned long irRunTime = 0; //houd bij wanneer de ir gelezen moet worden
+unsigned long p2CommandTime = 0; //houd bij wanneer de commando's van p2 uitgevoerd moeten worden
+
 
 
    // |rows  >column
@@ -119,6 +124,8 @@ typedef enum scherm scherm_t;
 scherm_t scherm;
 
 void setup(void) {
+	ir.begin();
+	ir.sendCommand(0x00,0x04);
   tft.begin();                    // initialiseerd het scherm.
     
   tft.setRotation(1);                 // roteert het scherm 45 graden
@@ -391,8 +398,20 @@ void wait (unsigned long howLong)
   unsigned long startedAt = millis();
   while(millis() - startedAt < howLong)
   {
-	  
-	  //JOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOST
+	  //zenden
+	  ir.sendCommand(10,0);
+	  ir.run();
+	  //ontvangen
+	  ir.read();
+	 switch (ir.getCommand())
+	 {
+	 case 10:
+	 p2links();
+	 	break;
+		 case 20:
+		 p2rechts();
+		 break;
+	 }
   
   }
 }
@@ -400,7 +419,21 @@ void wait (unsigned long howLong)
 
 
 void loop(){
+if (millis() >= irRunTime + 100)//check the ir every 100 ms
+{
+	ir.run();
+	ir.read();
+	irRunTime = millis();
+}
 
+if (millis() >= p2CommandTime + 1000)//check the ir every 100 ms
+{
+	Serial.print("comando ");
+	Serial.print(ir.getCommand(),HEX);
+	Serial.print(" waarde ");
+	Serial.println(ir.getValue(),HEX);
+	p2CommandTime = millis();
+}
   // See if there's any  touch data for us
   if (ts.bufferEmpty()) {
     return;
