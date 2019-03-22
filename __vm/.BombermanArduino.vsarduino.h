@@ -11,12 +11,12 @@
 #define __AVR_ATmega328p__
 #define __AVR_ATmega328P__
 #define _VMDEBUG 1
-#define ARDUINO 10809
+#define ARDUINO 10805
 #define ARDUINO_MAIN
 #define F_CPU 16000000L
 #define __AVR__
 #define F_CPU 16000000L
-#define ARDUINO 10809
+#define ARDUINO 10805
 #define ARDUINO_AVR_UNO
 #define ARDUINO_ARCH_AVR
 void setup(void);

@@ -171,6 +171,7 @@ nunchuk.update();
 
 void rechts(){
   nunchuk.update();
+ 
   if (grid[row][column+1]==0 || grid[row][column+1]==4) // Checkt of op de postie rechts van de character niks of een bom explosie zit. 
   {
    tft.fillRect(y+20,x, 20, 20, GREEN);       // Tekent de character 20 pixels verder naar links.
@@ -306,19 +307,29 @@ void map(){
     if(direction == 0 ) 
 	{
 		omhoog();
+		ir.sendCommand(30,0);
+		ir.run();
 	}
     if(direction == 2 )
 	{
 		 omlaag();
+		 ir.sendCommand(40,0);
+		 ir.run();
 	}	 
     if(direction == 1 ) {
 		rechts();
+		ir.sendCommand(20,0);
+		ir.run();
 	}
     if(direction == 3 ){ 
 		links();
+		ir.sendCommand(10,0);
+		ir.run();
 	}
         
     if(nunchuk.zButton==1 && bombdown==false){  // Checkt of de z knop is ingedrukt en dat er nog geen bomb op de grond ligt.
+	  ir.sendCommand(50,0);
+	  ir.run();
 	  grid[row][column]=3;          // Zet op de positie van de character in de grid een bomb 
       tft.fillRect(y,x, 20, 20, YELLOW);    // Teken de bomb
       startMillis = millis();         // Onthou wanneer de bomb is geplaatst
@@ -332,7 +343,7 @@ void map(){
     
     if ((startMillis + 2000  <= millis())  && boem==true )
     {
-      Serial.print("start");
+     // Serial.print("start");
       bomb();
     }
     
@@ -383,7 +394,7 @@ void map(){
 	  
 	  if ((p2startMillis + 2000  <= millis())  && p2boem==true )
 	  {
-		  Serial.print("p2bomb");
+		 // Serial.print("p2bomb");
 		  p2bomb();
 	  }
 	  
@@ -398,19 +409,32 @@ void wait (unsigned long howLong)
   unsigned long startedAt = millis();
   while(millis() - startedAt < howLong)
   {
-	  //zenden
-	  ir.sendCommand(10,0);
-	  ir.run();
+	   //zenden
+	  //  ir.sendCommand(10,0);
+	  // ir.run();
 	  //ontvangen
 	  ir.read();
 	 switch (ir.getCommand())
 	 {
-	 case 10:
-	 p2links();
-	 	break;
-		 case 20:
+	case 10:
+		p2links();
+	break;
+		 
+	case 20:
 		 p2rechts();
-		 break;
+	 break;
+	 
+	 case 30:
+		p2omhoog();
+	break;
+	
+	case 40:
+		p2omlaag();
+	break;
+	
+	case 50:
+		p2bomb();
+	break;
 	 }
   
   }
@@ -428,10 +452,10 @@ if (millis() >= irRunTime + 100)//check the ir every 100 ms
 
 if (millis() >= p2CommandTime + 1000)//check the ir every 100 ms
 {
-	Serial.print("comando ");
-	Serial.print(ir.getCommand(),HEX);
-	Serial.print(" waarde ");
-	Serial.println(ir.getValue(),HEX);
+	//Serial.print("comando ");
+	//Serial.print(ir.getCommand(),HEX);
+	//Serial.print(" waarde ");
+	//Serial.println(ir.getValue(),HEX);
 	p2CommandTime = millis();
 }
   // See if there's any  touch data for us
@@ -462,12 +486,12 @@ if (millis() >= p2CommandTime + 1000)//check the ir every 100 ms
       text_button(178, 115, 1, "Join Lobby");
       
       if (p.x >= 140 && p.x <= 185 && p.y >= 50  && p.y <= 110 ) {
-        Serial.println("  NEXT STATE = Start");
+ //       Serial.println("  NEXT STATE = Start");
         scherm = Start;
         zwart = 0;
       } 
       if (p.x >= 140 && p.x <= 185 && p.y >= 120 && p.y <= 180 ) {
-        Serial.println("  NEXT STATE = Join");
+   //     Serial.println("  NEXT STATE = Join");
         scherm = Join;
         zwart = 0;
       } 
@@ -573,7 +597,6 @@ if (millis() >= p2CommandTime + 1000)//check the ir every 100 ms
 //PLAYER2
 //////////////////////////////////////////////////////////////////////////
 void p2links(){
-	//if(ontvanged links van player 2){
 	if (grid[p2row][p2column-1]==0 || grid[p2row][p2column-1]== 4 || grid[p2row][p2column-1]== 7) // Checkt of op de postie links van de character niks of een bom explosie zit.
 	{
 		tft.fillRect(p2y-20,p2x, 20, 20, BLUE);         // Tekent de character 20 pixels verder naar links.
@@ -585,8 +608,6 @@ void p2links(){
 		p2y=p2y-20;							// Zet de coordinaten van de character 20 naar links.
 		p2column=p2column-1;                  // Past de postie van de character aan op de grid.
 	}
-	
-	//}
 }
 
 void p2rechts(){
@@ -639,13 +660,13 @@ void p2omlaag(){
 //ontvanged bomb
 void p2bomb(){
 	
-	Serial.print("/n explosie");
+	//Serial.print("/n explosie");
 	
 	grid[p2brow][p2bcolumn]=6;
 
 	if (grid[p2brow-1][p2bcolumn]!=1)
 	{
-		Serial.print("fillRect");
+		//Serial.print("fillRect");
 		tft.fillRect(p2by,p2bx-20, 20, 20, YELLOW);
 		grid[p2brow-1][p2bcolumn]=7;
 	}
@@ -674,9 +695,9 @@ void p2bomb(){
 }
 
 void p2bombneer(){
-	Serial.print("p2bombneer");
+	//Serial.print("p2bombneer");
 	if(p2bombdown==false){				// Checkt of de z knop is ingedrukt en dat er nog geen bomb op de grond ligt.
-		Serial.print("p2bombneerFalse");
+		//Serial.print("p2bombneerFalse");
 		grid[p2row][p2column]=6;        // Zet op de positie van de character in de grid een bomb
 		tft.fillRect(p2y,p2x, 20, 20, YELLOW);    // Teken de bomb
 		p2startMillis = millis();       // Onthou wanneer de bomb is geplaatst
@@ -686,6 +707,6 @@ void p2bombneer(){
 		p2bx=p2x;
 		p2by=p2y;
 		p2bombdown=true;				// bombdown betekent dat er niet nog een bomb down mag
-		Serial.print("p2bombtrue");
+	//	Serial.print("p2bombtrue");
 	}
 }
