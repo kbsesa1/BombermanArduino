@@ -70,6 +70,17 @@ unsigned long howLong;    // Hoelang er word gewacht totdat we verder gaan.
 
 int direction = 4;        // welke direction de joystick naar toe word geduwt. 
 
+int lastlinks=10;
+boolean linksdup=0;
+
+int lastrechts=20;
+boolean rechtsdup=0;
+
+int lastomhoog=30;
+boolean omhoogdup=0;
+
+int lastomlaag=40;
+boolean omlaagdup=0;
 
 //PLAYER2
 int p2row= 1;
@@ -123,6 +134,7 @@ typedef enum scherm scherm_t;
 scherm_t scherm;
 
 void setup(void) {
+	Serial.begin(115200);
 	ir.begin();
 	ir.sendCommand(0x00,0x04);
   tft.begin();                    // initialiseerd het scherm.
@@ -305,25 +317,69 @@ void map(){
 
     if(direction == 0 )
     {
-	    ir.sendCommand(30,0);
-	    ir.run();
-	    omhoog();
+	    if (omhoogdup)
+	    {
+		    ir.sendCommand(35,0);
+		    ir.run();
+		    omhoog();
+		    omhoogdup = 0;
+	    }
+	    else{
+		    ir.sendCommand(30,0);
+		    ir.run();
+		    omhoog();
+		    omhoogdup = 1;
+	    }
     }
+    
     if(direction == 2 )
     {
-	    ir.sendCommand(40,0);
-	    ir.run();
-	    omlaag();
+	    if (omlaagdup)
+	    {
+		    ir.sendCommand(45,0);
+		    ir.run();
+		    omlaag();
+		    omlaagdup = 0;
+	    }
+	    else{
+		    ir.sendCommand(40,0);
+		    ir.run();
+		    omlaag();
+		    omlaagdup = 1;
+	    }
     }
+    
     if(direction == 1 ) {
-	    ir.sendCommand(20,0);
-	    ir.run();
-	    rechts();
+	    if (rechtsdup)
+	    {
+		    Serial.print("send25");
+		    ir.sendCommand(25,0);
+		    ir.run();
+		    rechts();
+		    rechtsdup = 0;
+	    }
+	    else{
+		    Serial.print("get20");
+		    ir.sendCommand(20,0);
+		    ir.run();
+		    rechts();
+		    rechtsdup = 1;
+	    }
     }
     if(direction == 3 ){
-	    ir.sendCommand(10,0);
-	    ir.run();
-	    links();
+	    if (linksdup)
+	    {
+		    ir.sendCommand(15,0);
+		    ir.run();
+		    links();
+		    linksdup = 0;
+	    }
+	    else{
+		    ir.sendCommand(10,0);
+		    ir.run();
+		    links();
+		    linksdup = 1;
+	    }	    
     }
         
     if(nunchuk.zButton==1 && bombdown==false && player2==false){  // Checkt of de z knop is ingedrukt en dat er nog geen bomb op de grond ligt.
@@ -415,48 +471,94 @@ void wait (unsigned long howLong)
 	  ir.read();
 	 switch (ir.getCommand())
 	 {
-	case 10:
-		p2links();
-	break;
-		 
-	case 20:
-		 p2rechts();
-	 break;
-	 
-	 case 30:
-		p2omhoog();
-	break;
-	
-	case 40:
-		p2omlaag();
-	break;
-	
-	case 50:
+		case 10:
+		if(lastlinks==10){
+			p2links();
+
+		}
+		lastlinks=15;
+		break;
+		
+		case 15:
+		if(lastlinks==15){
+			p2links();
+		}
+		lastlinks=10;
+		break;
+		
+		case 20:
+		if(lastrechts==20){
+			p2rechts();
+			Serial.print("get20");
+
+		}
+		lastrechts=25;
+		break;
+		
+		case 25:
+		if(lastrechts==25){
+			p2rechts();
+			Serial.print("get25");
+		}
+		lastrechts=20;
+
+		break;
+		
+		case 30:
+		if(lastomhoog==30){
+			p2omhoog();
+		}
+		lastomhoog=35;
+		break;
+		
+		case 35:
+		if(lastomhoog==35){
+			p2omhoog();
+		}
+		lastomhoog=30;
+		break;
+		
+		
+		case 40:
+		if(lastomlaag==40){
+			p2omlaag();
+		}
+		lastomlaag=45;
+		break;
+		
+		case 45:
+		if(lastomlaag==45){
+			p2omlaag();
+		}
+		lastomlaag=40;
+		break;
+		
+		case 50:
 		p2bombneer();
-	break;
-	 }
-  
-  }
+		break;
+	}
+	
+}
 }
 
 
 
 void loop(){
-if (millis() >= irRunTime + 100)//check the ir every 100 ms
-{
-	ir.run();
-	ir.read();
-	irRunTime = millis();
-}
-
-if (millis() >= p2CommandTime + 1000)//check the ir every 100 ms
-{
-	//Serial.print("comando ");
-	//Serial.print(ir.getCommand(),HEX);
-	//Serial.print(" waarde ");
-	//Serial.println(ir.getValue(),HEX);
-	p2CommandTime = millis();
-}
+//if (millis() >= irRunTime + 100)//check the ir every 100 ms
+//{
+	//ir.run();
+	//ir.read();
+	//irRunTime = millis();
+//}
+//
+//if (millis() >= p2CommandTime + 1000)//check the ir every 100 ms
+//{
+	////Serial.print("comando ");
+	////Serial.print(ir.getCommand(),HEX);
+	////Serial.print(" waarde ");
+	////Serial.println(ir.getValue(),HEX);
+	//p2CommandTime = millis();
+//}
   // See if there's any  touch data for us
   if (ts.bufferEmpty()) {
     return;
