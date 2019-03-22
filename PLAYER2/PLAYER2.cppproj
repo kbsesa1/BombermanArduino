@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>7.0</ProjectVersion>
     <ToolchainName>com.Atmel.AVRGCC8.CPP</ToolchainName>
-    <ProjectGuid>{cb4a3bb7-2cb6-45f3-b829-a20dff130569}</ProjectGuid>
+    <ProjectGuid>{4a20c2f6-c29d-4db2-8744-0eecdc154196}</ProjectGuid>
     <avrdevice>atmega328p</avrdevice>
     <avrdeviceseries>none</avrdeviceseries>
     <OutputType>Executable</OutputType>
@@ -27,15 +27,16 @@
     <UncachedRange />
     <BootSegment>0</BootSegment>
     <AsfFrameworkConfig>
-      <framework-data xmlns="">
-        <options />
-        <configurations />
-        <files />
-        <documentation help="" />
-        <dependencies>
-          <content-extension eid="atmel.asf" uuidref="Atmel.ASF" version="3.21.0" />
-        </dependencies>
-      </framework-data>
+      <framework-data>
+  <options />
+  <configurations />
+  <files />
+  <documentation help="" />
+  <offline-documentation help="" />
+  <dependencies>
+    <content-extension eid="atmel.asf" uuidref="Atmel.ASF" version="3.34.1" />
+  </dependencies>
+</framework-data>
     </AsfFrameworkConfig>
     <preserveEEPROM>true</preserveEEPROM>
     <ResetRule>0</ResetRule>
@@ -55,7 +56,7 @@
     <ListValues>
       <Value>__AVR_ATmega328p__</Value>
       <Value>__AVR_ATmega328P__</Value>
-      <Value>ARDUINO=10805</Value>
+      <Value>ARDUINO=10809</Value>
       <Value>ARDUINO_MAIN</Value>
       <Value>F_CPU=16000000L</Value>
       <Value>__AVR__</Value>
@@ -66,21 +67,23 @@
   <avrgcc.compiler.directories.IncludePaths>
     <ListValues>
       <Value>../../../PLAYER2</Value>
-      <Value>C:/Users/HP/Documents/Arduino/libraries/irComm2</Value>
-      <Value>C:/Users/HP/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.21/libraries/SPI/src</Value>
-      <Value>C:/Users/HP/Documents/Arduino/libraries/Adafruit_STMPE610-master</Value>
-      <Value>C:/Users/HP/Documents/Arduino/libraries/Adafruit_ILI9341-master</Value>
-      <Value>C:/Users/HP/Documents/Arduino/libraries/Nunchuck</Value>
+      <Value>C:/Users/joost/Documents/Arduino/libraries/Adafruit_STMPE610-master</Value>
+      <Value>C:/Program Files (x86)/Arduino/hardware/arduino/avr/libraries/Wire/src</Value>
+      <Value>C:/Users/joost/Documents/Arduino/libraries/Adafruit_ILI9341-master</Value>
+      <Value>C:/Program Files (x86)/Arduino/hardware/arduino/avr/libraries/SPI/src</Value>
+      <Value>C:/Users/joost/Documents/Arduino/libraries/Adafruit-GFX-Library-master</Value>
+      <Value>C:/Users/joost/Documents/Arduino/libraries/ArduinoNunchuk</Value>
+      <Value>C:/Users/joost/Documents/Arduino/libraries/irComm2</Value>
       <Value>C:/Program Files (x86)/Arduino/libraries</Value>
-      <Value>C:/Users/HP/Documents/Arduino/libraries</Value>
-      <Value>C:/Users/HP/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.21/libraries</Value>
-      <Value>C:/Users/HP/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.21/cores/arduino</Value>
-      <Value>C:/Users/HP/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.21/variants/standard</Value>
-      <Value>C:/Users/HP/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/avr/include</Value>
-      <Value>C:/Users/HP/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/avr/include/avr</Value>
-      <Value>C:/Users/HP/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/lib/gcc/avr/4.8.1/include</Value>
-      <Value>C:/Users/HP/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/lib/gcc/avr/4.9.2/include</Value>
-      <Value>C:/Users/HP/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/lib/gcc/avr/4.9.3/include</Value>
+      <Value>C:/Users/joost/Documents/Arduino/libraries</Value>
+      <Value>C:/Program Files (x86)/Arduino/hardware/arduino/avr/libraries</Value>
+      <Value>C:/Program Files (x86)/Arduino/hardware/arduino/avr/cores/arduino</Value>
+      <Value>C:/Program Files (x86)/Arduino/hardware/arduino/avr/variants/standard</Value>
+      <Value>C:/Program Files (x86)/Arduino/hardware/tools/avr/avr/include</Value>
+      <Value>C:/Program Files (x86)/Arduino/hardware/tools/avr/avr/include/avr</Value>
+      <Value>C:/Program Files (x86)/Arduino/hardware/tools/avr/lib/gcc/avr/4.8.1/include</Value>
+      <Value>C:/Program Files (x86)/Arduino/hardware/tools/avr/lib/gcc/avr/4.9.2/include</Value>
+      <Value>C:/Program Files (x86)/Arduino/hardware/tools/avr/lib/gcc/avr/4.9.3/include</Value>
     </ListValues>
   </avrgcc.compiler.directories.IncludePaths>
   <avrgcc.compiler.optimization.level>Optimize (-O1)</avrgcc.compiler.optimization.level>
@@ -95,7 +98,7 @@
     <ListValues>
       <Value>__AVR_ATmega328p__</Value>
       <Value>__AVR_ATmega328P__</Value>
-      <Value>ARDUINO=10805</Value>
+      <Value>ARDUINO=10809</Value>
       <Value>ARDUINO_MAIN</Value>
       <Value>F_CPU=16000000L</Value>
       <Value>__AVR__</Value>
@@ -106,21 +109,23 @@
   <avrgcccpp.compiler.directories.IncludePaths>
     <ListValues>
       <Value>../../../PLAYER2</Value>
-      <Value>C:/Users/HP/Documents/Arduino/libraries/irComm2</Value>
-      <Value>C:/Users/HP/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.21/libraries/SPI/src</Value>
-      <Value>C:/Users/HP/Documents/Arduino/libraries/Adafruit_STMPE610-master</Value>
-      <Value>C:/Users/HP/Documents/Arduino/libraries/Adafruit_ILI9341-master</Value>
-      <Value>C:/Users/HP/Documents/Arduino/libraries/Nunchuck</Value>
+      <Value>C:/Users/joost/Documents/Arduino/libraries/Adafruit_STMPE610-master</Value>
+      <Value>C:/Program Files (x86)/Arduino/hardware/arduino/avr/libraries/Wire/src</Value>
+      <Value>C:/Users/joost/Documents/Arduino/libraries/Adafruit_ILI9341-master</Value>
+      <Value>C:/Program Files (x86)/Arduino/hardware/arduino/avr/libraries/SPI/src</Value>
+      <Value>C:/Users/joost/Documents/Arduino/libraries/Adafruit-GFX-Library-master</Value>
+      <Value>C:/Users/joost/Documents/Arduino/libraries/ArduinoNunchuk</Value>
+      <Value>C:/Users/joost/Documents/Arduino/libraries/irComm2</Value>
       <Value>C:/Program Files (x86)/Arduino/libraries</Value>
-      <Value>C:/Users/HP/Documents/Arduino/libraries</Value>
-      <Value>C:/Users/HP/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.21/libraries</Value>
-      <Value>C:/Users/HP/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.21/cores/arduino</Value>
-      <Value>C:/Users/HP/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.21/variants/standard</Value>
-      <Value>C:/Users/HP/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/avr/include</Value>
-      <Value>C:/Users/HP/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/avr/include/avr</Value>
-      <Value>C:/Users/HP/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/lib/gcc/avr/4.8.1/include</Value>
-      <Value>C:/Users/HP/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/lib/gcc/avr/4.9.2/include</Value>
-      <Value>C:/Users/HP/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/lib/gcc/avr/4.9.3/include</Value>
+      <Value>C:/Users/joost/Documents/Arduino/libraries</Value>
+      <Value>C:/Program Files (x86)/Arduino/hardware/arduino/avr/libraries</Value>
+      <Value>C:/Program Files (x86)/Arduino/hardware/arduino/avr/cores/arduino</Value>
+      <Value>C:/Program Files (x86)/Arduino/hardware/arduino/avr/variants/standard</Value>
+      <Value>C:/Program Files (x86)/Arduino/hardware/tools/avr/avr/include</Value>
+      <Value>C:/Program Files (x86)/Arduino/hardware/tools/avr/avr/include/avr</Value>
+      <Value>C:/Program Files (x86)/Arduino/hardware/tools/avr/lib/gcc/avr/4.8.1/include</Value>
+      <Value>C:/Program Files (x86)/Arduino/hardware/tools/avr/lib/gcc/avr/4.9.2/include</Value>
+      <Value>C:/Program Files (x86)/Arduino/hardware/tools/avr/lib/gcc/avr/4.9.3/include</Value>
     </ListValues>
   </avrgcccpp.compiler.directories.IncludePaths>
   <avrgcccpp.compiler.optimization.level>Optimize (-O1)</avrgcccpp.compiler.optimization.level>
@@ -131,7 +136,12 @@
   <avrgcccpp.assembler.debugging.DebugLevel>Default (-Wa,-g)</avrgcccpp.assembler.debugging.DebugLevel>
 </AvrGccCpp>
     </ToolchainSettings>
-    <VMSETTING_IncludePaths>../../../PLAYER2;C:/Users/HP/Documents/Arduino/libraries/irComm2;C:/Users/HP/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.21/libraries/SPI/src;C:/Users/HP/Documents/Arduino/libraries/Adafruit_STMPE610-master;C:/Users/HP/Documents/Arduino/libraries/Adafruit_ILI9341-master;C:/Users/HP/Documents/Arduino/libraries/Nunchuck;C:/Program Files (x86)/Arduino/libraries;C:/Users/HP/Documents/Arduino/libraries;C:/Users/HP/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.21/libraries;C:/Users/HP/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.21/cores/arduino;C:/Users/HP/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.21/variants/standard;C:/Users/HP/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/avr/include;C:/Users/HP/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/avr/include/avr;C:/Users/HP/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/lib/gcc/avr/4.8.1/include;C:/Users/HP/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/lib/gcc/avr/4.9.2/include;C:/Users/HP/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/lib/gcc/avr/4.9.3/include;</VMSETTING_IncludePaths>
+    <VMSETTING_IncludePaths>../../../PLAYER2;C:/Users/HP/Documents/Arduino/libraries/irComm2;C:/Users/HP/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.21/libraries/SPI/src;C:/Users/HP/Documents/Arduino/libraries/Adafruit_STMPE610-master;C:/Users/HP/Documents/Arduino/libraries/Adafruit_ILI9341-master;C:/Users/HP/Documents/Arduino/libraries/Nunchuck;C:/Program Files (x86)/Arduino/libraries;C:/Users/HP/Documents/Arduino/libraries;C:/Users/HP/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.21/libraries;C:/Users/HP/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.21/cores/arduino;C:/Users/HP/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.21/variants/standard;C:/Users/HP/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/avr/include;C:/Users/HP/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/avr/include/avr;C:/Users/HP/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/lib/gcc/avr/4.8.1/include;C:/Users/HP/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/lib/gcc/avr/4.9.2/include;C:/Users/HP/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/lib/gcc/avr/4.9.3/include;C:/Users/joost/Documents/Arduino/libraries/Adafruit_STMPE610-master;C:/Program Files (x86)/Arduino/hardware/arduino/avr/libraries/Wire/src;C:/Users/joost/Documents/Arduino/libraries/Adafruit_ILI9341-master;C:/Program Files (x86)/Arduino/hardware/arduino/avr/libraries/SPI/src;C:/Users/joost/Documents/Arduino/libraries/Adafruit-GFX-Library-master;C:/Users/joost/Documents/Arduino/libraries/ArduinoNunchuk;C:/Users/joost/Documents/Arduino/libraries/irComm2;C:/Users/joost/Documents/Arduino/libraries;C:/Program Files (x86)/Arduino/hardware/arduino/avr/libraries;C:/Program Files (x86)/Arduino/hardware/arduino/avr/cores/arduino;C:/Program Files (x86)/Arduino/hardware/arduino/avr/variants/standard;C:/Program Files (x86)/Arduino/hardware/tools/avr/avr/include;C:/Program Files (x86)/Arduino/hardware/tools/avr/avr/include/avr;C:/Program Files (x86)/Arduino/hardware/tools/avr/lib/gcc/avr/4.8.1/include;C:/Program Files (x86)/Arduino/hardware/tools/avr/lib/gcc/avr/4.9.2/include;C:/Program Files (x86)/Arduino/hardware/tools/avr/lib/gcc/avr/4.9.3/include;</VMSETTING_IncludePaths>
+    <VisualMicroSettings>
+      <VisualMicroSettings>
+        <arduino.upload.port>COM5</arduino.upload.port>
+      </VisualMicroSettings>
+    </VisualMicroSettings>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <ToolchainSettings>
@@ -147,7 +157,7 @@
     <ListValues>
       <Value>__AVR_ATmega328p__</Value>
       <Value>__AVR_ATmega328P__</Value>
-      <Value>ARDUINO=10805</Value>
+      <Value>ARDUINO=10809</Value>
       <Value>ARDUINO_MAIN</Value>
       <Value>F_CPU=16000000L</Value>
       <Value>__AVR__</Value>
@@ -158,21 +168,23 @@
   <avrgcc.compiler.directories.IncludePaths>
     <ListValues>
       <Value>../../../PLAYER2</Value>
-      <Value>C:/Users/HP/Documents/Arduino/libraries/irComm2</Value>
-      <Value>C:/Users/HP/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.21/libraries/SPI/src</Value>
-      <Value>C:/Users/HP/Documents/Arduino/libraries/Adafruit_STMPE610-master</Value>
-      <Value>C:/Users/HP/Documents/Arduino/libraries/Adafruit_ILI9341-master</Value>
-      <Value>C:/Users/HP/Documents/Arduino/libraries/Nunchuck</Value>
+      <Value>C:/Users/joost/Documents/Arduino/libraries/Adafruit_STMPE610-master</Value>
+      <Value>C:/Program Files (x86)/Arduino/hardware/arduino/avr/libraries/Wire/src</Value>
+      <Value>C:/Users/joost/Documents/Arduino/libraries/Adafruit_ILI9341-master</Value>
+      <Value>C:/Program Files (x86)/Arduino/hardware/arduino/avr/libraries/SPI/src</Value>
+      <Value>C:/Users/joost/Documents/Arduino/libraries/Adafruit-GFX-Library-master</Value>
+      <Value>C:/Users/joost/Documents/Arduino/libraries/ArduinoNunchuk</Value>
+      <Value>C:/Users/joost/Documents/Arduino/libraries/irComm2</Value>
       <Value>C:/Program Files (x86)/Arduino/libraries</Value>
-      <Value>C:/Users/HP/Documents/Arduino/libraries</Value>
-      <Value>C:/Users/HP/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.21/libraries</Value>
-      <Value>C:/Users/HP/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.21/cores/arduino</Value>
-      <Value>C:/Users/HP/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.21/variants/standard</Value>
-      <Value>C:/Users/HP/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/avr/include</Value>
-      <Value>C:/Users/HP/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/avr/include/avr</Value>
-      <Value>C:/Users/HP/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/lib/gcc/avr/4.8.1/include</Value>
-      <Value>C:/Users/HP/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/lib/gcc/avr/4.9.2/include</Value>
-      <Value>C:/Users/HP/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/lib/gcc/avr/4.9.3/include</Value>
+      <Value>C:/Users/joost/Documents/Arduino/libraries</Value>
+      <Value>C:/Program Files (x86)/Arduino/hardware/arduino/avr/libraries</Value>
+      <Value>C:/Program Files (x86)/Arduino/hardware/arduino/avr/cores/arduino</Value>
+      <Value>C:/Program Files (x86)/Arduino/hardware/arduino/avr/variants/standard</Value>
+      <Value>C:/Program Files (x86)/Arduino/hardware/tools/avr/avr/include</Value>
+      <Value>C:/Program Files (x86)/Arduino/hardware/tools/avr/avr/include/avr</Value>
+      <Value>C:/Program Files (x86)/Arduino/hardware/tools/avr/lib/gcc/avr/4.8.1/include</Value>
+      <Value>C:/Program Files (x86)/Arduino/hardware/tools/avr/lib/gcc/avr/4.9.2/include</Value>
+      <Value>C:/Program Files (x86)/Arduino/hardware/tools/avr/lib/gcc/avr/4.9.3/include</Value>
     </ListValues>
   </avrgcc.compiler.directories.IncludePaths>
   <avrgcc.compiler.optimization.level>Optimize (-O1)</avrgcc.compiler.optimization.level>
@@ -187,7 +199,7 @@
     <ListValues>
       <Value>__AVR_ATmega328p__</Value>
       <Value>__AVR_ATmega328P__</Value>
-      <Value>ARDUINO=10805</Value>
+      <Value>ARDUINO=10809</Value>
       <Value>ARDUINO_MAIN</Value>
       <Value>F_CPU=16000000L</Value>
       <Value>__AVR__</Value>
@@ -198,21 +210,23 @@
   <avrgcccpp.compiler.directories.IncludePaths>
     <ListValues>
       <Value>../../../PLAYER2</Value>
-      <Value>C:/Users/HP/Documents/Arduino/libraries/irComm2</Value>
-      <Value>C:/Users/HP/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.21/libraries/SPI/src</Value>
-      <Value>C:/Users/HP/Documents/Arduino/libraries/Adafruit_STMPE610-master</Value>
-      <Value>C:/Users/HP/Documents/Arduino/libraries/Adafruit_ILI9341-master</Value>
-      <Value>C:/Users/HP/Documents/Arduino/libraries/Nunchuck</Value>
+      <Value>C:/Users/joost/Documents/Arduino/libraries/Adafruit_STMPE610-master</Value>
+      <Value>C:/Program Files (x86)/Arduino/hardware/arduino/avr/libraries/Wire/src</Value>
+      <Value>C:/Users/joost/Documents/Arduino/libraries/Adafruit_ILI9341-master</Value>
+      <Value>C:/Program Files (x86)/Arduino/hardware/arduino/avr/libraries/SPI/src</Value>
+      <Value>C:/Users/joost/Documents/Arduino/libraries/Adafruit-GFX-Library-master</Value>
+      <Value>C:/Users/joost/Documents/Arduino/libraries/ArduinoNunchuk</Value>
+      <Value>C:/Users/joost/Documents/Arduino/libraries/irComm2</Value>
       <Value>C:/Program Files (x86)/Arduino/libraries</Value>
-      <Value>C:/Users/HP/Documents/Arduino/libraries</Value>
-      <Value>C:/Users/HP/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.21/libraries</Value>
-      <Value>C:/Users/HP/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.21/cores/arduino</Value>
-      <Value>C:/Users/HP/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.21/variants/standard</Value>
-      <Value>C:/Users/HP/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/avr/include</Value>
-      <Value>C:/Users/HP/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/avr/include/avr</Value>
-      <Value>C:/Users/HP/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/lib/gcc/avr/4.8.1/include</Value>
-      <Value>C:/Users/HP/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/lib/gcc/avr/4.9.2/include</Value>
-      <Value>C:/Users/HP/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/lib/gcc/avr/4.9.3/include</Value>
+      <Value>C:/Users/joost/Documents/Arduino/libraries</Value>
+      <Value>C:/Program Files (x86)/Arduino/hardware/arduino/avr/libraries</Value>
+      <Value>C:/Program Files (x86)/Arduino/hardware/arduino/avr/cores/arduino</Value>
+      <Value>C:/Program Files (x86)/Arduino/hardware/arduino/avr/variants/standard</Value>
+      <Value>C:/Program Files (x86)/Arduino/hardware/tools/avr/avr/include</Value>
+      <Value>C:/Program Files (x86)/Arduino/hardware/tools/avr/avr/include/avr</Value>
+      <Value>C:/Program Files (x86)/Arduino/hardware/tools/avr/lib/gcc/avr/4.8.1/include</Value>
+      <Value>C:/Program Files (x86)/Arduino/hardware/tools/avr/lib/gcc/avr/4.9.2/include</Value>
+      <Value>C:/Program Files (x86)/Arduino/hardware/tools/avr/lib/gcc/avr/4.9.3/include</Value>
     </ListValues>
   </avrgcccpp.compiler.directories.IncludePaths>
   <avrgcccpp.compiler.optimization.level>Optimize (-O1)</avrgcccpp.compiler.optimization.level>
@@ -223,7 +237,12 @@
   <avrgcccpp.assembler.debugging.DebugLevel>Default (-Wa,-g)</avrgcccpp.assembler.debugging.DebugLevel>
 </AvrGccCpp>
     </ToolchainSettings>
-    <VMSETTING_IncludePaths>../../../PLAYER2;C:/Users/HP/Documents/Arduino/libraries/irComm2;C:/Users/HP/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.21/libraries/SPI/src;C:/Users/HP/Documents/Arduino/libraries/Adafruit_STMPE610-master;C:/Users/HP/Documents/Arduino/libraries/Adafruit_ILI9341-master;C:/Users/HP/Documents/Arduino/libraries/Nunchuck;C:/Program Files (x86)/Arduino/libraries;C:/Users/HP/Documents/Arduino/libraries;C:/Users/HP/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.21/libraries;C:/Users/HP/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.21/cores/arduino;C:/Users/HP/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.21/variants/standard;C:/Users/HP/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/avr/include;C:/Users/HP/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/avr/include/avr;C:/Users/HP/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/lib/gcc/avr/4.8.1/include;C:/Users/HP/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/lib/gcc/avr/4.9.2/include;C:/Users/HP/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/lib/gcc/avr/4.9.3/include;</VMSETTING_IncludePaths>
+    <VMSETTING_IncludePaths>../../../PLAYER2;C:/Users/HP/Documents/Arduino/libraries/irComm2;C:/Users/HP/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.21/libraries/SPI/src;C:/Users/HP/Documents/Arduino/libraries/Adafruit_STMPE610-master;C:/Users/HP/Documents/Arduino/libraries/Adafruit_ILI9341-master;C:/Users/HP/Documents/Arduino/libraries/Nunchuck;C:/Program Files (x86)/Arduino/libraries;C:/Users/HP/Documents/Arduino/libraries;C:/Users/HP/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.21/libraries;C:/Users/HP/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.21/cores/arduino;C:/Users/HP/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.21/variants/standard;C:/Users/HP/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/avr/include;C:/Users/HP/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/avr/include/avr;C:/Users/HP/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/lib/gcc/avr/4.8.1/include;C:/Users/HP/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/lib/gcc/avr/4.9.2/include;C:/Users/HP/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/lib/gcc/avr/4.9.3/include;C:/Users/joost/Documents/Arduino/libraries/Adafruit_STMPE610-master;C:/Program Files (x86)/Arduino/hardware/arduino/avr/libraries/Wire/src;C:/Users/joost/Documents/Arduino/libraries/Adafruit_ILI9341-master;C:/Program Files (x86)/Arduino/hardware/arduino/avr/libraries/SPI/src;C:/Users/joost/Documents/Arduino/libraries/Adafruit-GFX-Library-master;C:/Users/joost/Documents/Arduino/libraries/ArduinoNunchuk;C:/Users/joost/Documents/Arduino/libraries/irComm2;C:/Users/joost/Documents/Arduino/libraries;C:/Program Files (x86)/Arduino/hardware/arduino/avr/libraries;C:/Program Files (x86)/Arduino/hardware/arduino/avr/cores/arduino;C:/Program Files (x86)/Arduino/hardware/arduino/avr/variants/standard;C:/Program Files (x86)/Arduino/hardware/tools/avr/avr/include;C:/Program Files (x86)/Arduino/hardware/tools/avr/avr/include/avr;C:/Program Files (x86)/Arduino/hardware/tools/avr/lib/gcc/avr/4.8.1/include;C:/Program Files (x86)/Arduino/hardware/tools/avr/lib/gcc/avr/4.9.2/include;C:/Program Files (x86)/Arduino/hardware/tools/avr/lib/gcc/avr/4.9.3/include;</VMSETTING_IncludePaths>
+    <VisualMicroSettings>
+      <VisualMicroSettings>
+        <arduino.upload.port>COM5</arduino.upload.port>
+      </VisualMicroSettings>
+    </VisualMicroSettings>
   </PropertyGroup>
   <ItemGroup>
     <None Include="PLAYER2.ino">

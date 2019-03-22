@@ -10,12 +10,13 @@
 
 #define __AVR_ATmega328p__
 #define __AVR_ATmega328P__
-#define ARDUINO 10805
+#define _VMDEBUG 1
+#define ARDUINO 10809
 #define ARDUINO_MAIN
 #define F_CPU 16000000L
 #define __AVR__
 #define F_CPU 16000000L
-#define ARDUINO 10805
+#define ARDUINO 10809
 #define ARDUINO_AVR_UNO
 #define ARDUINO_ARCH_AVR
 void setup(void);
@@ -35,9 +36,6 @@ void p2omhoog();
 void p2omlaag();
 void p2bomb();
 void p2bombneer();
-uint8_t gridYFromByte(uint8_t input);
-uint8_t gridXFromByte(uint8_t input);
-uint8_t getByteFromGrid(uint8_t x,uint8_t y);
 
 #include "pins_arduino.h" 
 #include "arduino.h"

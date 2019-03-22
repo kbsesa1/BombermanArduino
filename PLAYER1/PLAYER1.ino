@@ -70,6 +70,7 @@ unsigned long howLong;    // Hoelang er word gewacht totdat we verder gaan.
 
 int direction = 4;        // welke direction de joystick naar toe word geduwt. 
 
+//sla op welke opdracht we als laatste gestuurd hebben zodat we daarna de herhaalopdracht kunnen sturen
 int lastlinks=10;
 boolean linksdup=0;
 
@@ -133,8 +134,6 @@ typedef enum scherm scherm_t;
 scherm_t scherm;
 
 void setup(void) {
-	Serial.begin(115200);
-
 	ir.begin();
 	ir.sendCommand(0x00,0x04);
   tft.begin();                    // initialiseerd het scherm.
@@ -317,7 +316,7 @@ void map(){
 
     if(direction == 0 ) 
     {
-	    if (omhoogdup)
+	    if (omhoogdup)		//controleer of we dit commando niet net al hebben gestuurd en stuur anders de herhaalcode
 	    {
 		    ir.sendCommand(35,0);
 		    ir.run();
@@ -352,14 +351,12 @@ void map(){
     if(direction == 1 ) {
 	    if (rechtsdup)
 	    {
-			Serial.print("send25");
 		    ir.sendCommand(25,0);
 		    ir.run();
 		    rechts();
 		    rechtsdup = 0;
 	    }
 	    else{
-			Serial.print("get20");
 		    ir.sendCommand(20,0);
 		    ir.run();
 		    rechts();
@@ -398,7 +395,6 @@ void map(){
     
     if ((startMillis + 2000  <= millis())  && boem==true )
     {
-     // Serial.print("start");
       bomb();
     }
     
@@ -449,7 +445,6 @@ void map(){
 	  
 	  if ((p2startMillis + 2000  <= millis())  && p2boem==true )
 	  {
-		 // Serial.print("p2bomb");
 		  p2bomb();
 	  }
 	  
@@ -464,15 +459,10 @@ void wait (unsigned long howLong)
   unsigned long startedAt = millis();
   while(millis() - startedAt < howLong)
   {
-	   //zenden
-	  //  ir.sendCommand(10,0);
-	  // ir.run();
-	  //ontvangen
 	  ir.read();
-	 // Serial.print("irread");
 	 switch (ir.getCommand())
 	{
-	case 10:
+	case 10:		//normale code van naar links
 	if(lastlinks==10){
 		p2links();
 
@@ -480,7 +470,7 @@ void wait (unsigned long howLong)
 	lastlinks=15;
 	break;
 	
-	case 15:
+	case 15:		//herhaal code van naar links
 	if(lastlinks==15){
 		p2links();
 	}
@@ -490,7 +480,6 @@ void wait (unsigned long howLong)
 	case 20:
 	if(lastrechts==20){
 		p2rechts();
-		Serial.print("get20");
 
 	}
 	lastrechts=25;
@@ -499,7 +488,6 @@ void wait (unsigned long howLong)
 	case 25:
 	if(lastrechts==25){
 		p2rechts();
-		Serial.print("get25");
 
 	}
 	lastrechts=20;
@@ -546,21 +534,7 @@ void wait (unsigned long howLong)
 
 
 void loop(){
-//if (millis() >= irRunTime + 100)//check the ir every 100 ms
-//{
-	//ir.run();
-	//ir.read();
-	//irRunTime = millis();
-//}
-//
-//if (millis() >= p2CommandTime + 1000)//check the ir every 100 ms
-//{
-	////Serial.print("comando ");
-	////Serial.print(ir.getCommand(),HEX);
-	////Serial.print(" waarde ");
-	////Serial.println(ir.getValue(),HEX);
-	//p2CommandTime = millis();
-//}
+
   //// See if there's any  touch data for us
   if (ts.bufferEmpty()) {
     return;
@@ -763,8 +737,6 @@ void p2omlaag(){
 //ontvanged bomb
 void p2bomb(){
 	
-	//Serial.print("/n explosie");
-	
 	grid[p2brow][p2bcolumn]=6;
 
 	if (grid[p2brow-1][p2bcolumn]!=1)
@@ -798,9 +770,7 @@ void p2bomb(){
 }
 
 void p2bombneer(){
-	//Serial.print("p2bombneer");
 	if(p2bombdown==false){				// Checkt of de z knop is ingedrukt en dat er nog geen bomb op de grond ligt.
-		//Serial.print("p2bombneerFalse");
 		grid[p2row][p2column]=6;        // Zet op de positie van de character in de grid een bomb
 		tft.fillRect(p2y,p2x, 20, 20, YELLOW);    // Teken de bomb
 		p2startMillis = millis();       // Onthou wanneer de bomb is geplaatst
@@ -810,21 +780,7 @@ void p2bombneer(){
 		p2bx=p2x;
 		p2by=p2y;
 		p2bombdown=true;				// bombdown betekent dat er niet nog een bomb down mag
-	//	Serial.print("p2bombtrue");
 	}
 }
 
-uint8_t gridYFromByte(uint8_t input){
-	return (input &= 0x0F);
-}
 
-uint8_t gridXFromByte(uint8_t input){
-	return (input &= 0xF0)>>4;
-}
-
-uint8_t getByteFromGrid(uint8_t x,uint8_t y){
-	uint8_t output = 0;
-	output |= (x<<4)&0xF0;
-	output |= y&0x0F;
-	return output;
-}
