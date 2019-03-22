@@ -1,7 +1,7 @@
 #include <Adafruit_STMPE610.h>  // touchscreen driver
 #include <Adafruit_ILI9341.h> // Scherm driver
 #include <ArduinoNunchuk.h>     // Nunchuck libary
-#include <irComm2.h> // IR library
+#include <irComm2.h>			// IR library
 #include <SPI.h>
 
 IR ir = IR(0);//0 is voor 38 KHz zenden en 1 is voor 56KHz zenden
@@ -104,11 +104,11 @@ int grid[ 11  ][ 15 ] = {
   // [11][15] zijn de max bytes maar bij het aanroepen begin je wel bij 0 
   {1, 1,1,1,1,1,1,1,1,1,1,1,1,1, 1},  //0=air
 									  //1=wall    
-  {1, 0,0,2,0,2,0,2,0,2,0,2,0,0, 1},  //2=crate
+  {1, 0,0,0,0,0,0,0,0,0,0,0,0,0, 1},  //2=crate
   {1, 0,1,0,1,0,1,0,1,0,1,0,1,0, 1},  //3=bomb
-  {1, 2,0,2,0,2,0,2,0,2,0,2,0,2, 1},  //4=explosion
+  {1, 2,0,2,0,2,0,2,0,2,0,2,0,0, 1},  //4=explosion
   {1, 0,1,0,1,0,1,0,1,0,1,0,1,0, 1},  //6=p2bomb
-  {1, 2,0,2,0,2,0,2,0,2,0,2,0,2, 1},  //7=p2explosie
+  {1, 2,0,2,0,2,0,2,0,2,0,2,0,0, 1},  //7=p2explosie
   {1, 0,1,0,1,0,1,0,1,0,1,0,1,0, 1},
   {1, 2,0,2,0,2,0,2,0,2,0,2,0,2, 1},
   {1, 0,1,0,1,0,1,0,1,0,1,0,1,0, 1},
@@ -432,7 +432,7 @@ void wait (unsigned long howLong)
 	break;
 	
 	case 50:
-		p2bomb();
+		p2bombneer();
 	break;
 	 }
   
