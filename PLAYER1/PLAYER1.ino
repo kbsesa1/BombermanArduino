@@ -123,6 +123,8 @@ enum scherm{Home, Start, Join, Map, Winner, Death };  // benoem de verschillende
 typedef enum scherm scherm_t;
 scherm_t scherm;
 
+
+
 void setup(void) {
 	ir.begin();
 	ir.sendCommand(0x00,0x04);
@@ -730,4 +732,3 @@ uint8_t getByteFromGrid(uint8_t x,uint8_t y){
 	output |= y&0x0F;
 	return output;
 }
-//branch test
