@@ -4,7 +4,7 @@
 #include <irComm2.h> // IR library
 #include <SPI.h>
 
-IR ir = IR(0);//0 is voor 38 KHz zenden en 1 is voor 56KHz zenden
+IR ir = IR(1);//0 is voor 38 KHz zenden en 1 is voor 56KHz zenden
 
 #define SD_CS 4
 
@@ -306,25 +306,25 @@ void map(){
 
     if(direction == 0 ) 
 	{
-		omhoog();
 		ir.sendCommand(30,0);
 		ir.run();
+		omhoog();		
 	}
     if(direction == 2 )
 	{
-		 omlaag();
-		 ir.sendCommand(40,0);
-		 ir.run();
+		ir.sendCommand(40,0);
+		ir.run();
+		 omlaag();		 
 	}	 
     if(direction == 1 ) {
-		rechts();
 		ir.sendCommand(20,0);
 		ir.run();
+		rechts();		
 	}
     if(direction == 3 ){ 
-		links();
 		ir.sendCommand(10,0);
 		ir.run();
+		links();		
 	}
         
     if(nunchuk.zButton==1 && bombdown==false){  // Checkt of de z knop is ingedrukt en dat er nog geen bomb op de grond ligt.
@@ -725,5 +725,8 @@ uint8_t gridXFromByte(uint8_t input){
 }
 
 uint8_t getByteFromGrid(uint8_t x,uint8_t y){
-	uint8_t final
+	uint8_t output = 0;
+	output |= (x<<4)&0xF0;
+	output |= y&0x0F;
+	return output;
 }
