@@ -414,9 +414,14 @@ void wait (unsigned long howLong)
 	  // ir.run();
 	  //ontvangen
 	  ir.read();
+	  Serial.print("irread");
 	 switch (ir.getCommand())
 	 {
+	default:
+		 Serial.print("switch");
+		 break;
 	case 10:
+	Serial.print("test");
 		p2links();
 	break;
 		 
