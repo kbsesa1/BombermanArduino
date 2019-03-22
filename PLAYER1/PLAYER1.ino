@@ -4,7 +4,7 @@
 #include <irComm2.h> // IR library
 #include <SPI.h>
 
-IR ir = IR(1);//0 is voor 38 KHz zenden en 1 is voor 56KHz zenden
+IR ir = IR(0);//0 is voor 38 KHz zenden en 1 is voor 56KHz zenden
 
 #define SD_CS 4
 
@@ -46,8 +46,8 @@ boolean life= true;     // life is true zodat de speler de character mag besture
 boolean boem = false;   // checkt of de geplaatste bomb al is ontploft.
 boolean bombdown = false; // checkt of de speler aan een bomb heeft geplaatst.
 
-int x=200;         // de start x waarde van de character.
-int y=270;         // de start y waarde van de character.
+int x=40;         // de start x waarde van de character.
+int y=30;         // de start y waarde van de character.
 
 int bx;           // bx is de x coordinaat van de geplaatste bomb.
 int by;           // by is de y coordinaat van de geplaatste bomb.
@@ -58,8 +58,8 @@ int zwart = 0;
 int brow ;          // de locatie van de bomb in de grid tenopzichte van de y as.
 int bcolumn;        // de locatie van de bomb in de grid tenopzichte van de x as.
      
-int row =9;         // de start locatie van de character in de grid tenopzichte van de y as.
-int column=13;       // de start locatie van de chacacter in de grid tenopzichte van de x as.
+int row =1;         // de start locatie van de character in de grid tenopzichte van de y as.
+int column=1;       // de start locatie van de chacacter in de grid tenopzichte van de x as.
 
 
 unsigned long startMillis;  // houd bij wanneer de bomb word geplaatst.
@@ -71,12 +71,15 @@ unsigned long howLong;    // Hoelang er word gewacht totdat we verder gaan.
 int direction = 4;        // welke direction de joystick naar toe word geduwt. 
 
 
-//PLAYER2
-int p2row= 1;
-int p2column =1;
 
-int p2x=40;         // de start x waarde van de tweede character.
-int p2y=30;         // de start y waarde van de  tweede character.
+
+
+//PLAYER2
+int p2row= 9;
+int p2column =13;
+
+int p2x=200;         // de start x waarde van de tweede character.
+int p2y=270;         // de start y waarde van de  tweede character.
 
 int p2brow ;          // de locatie van de tweede bomb in de grid tenopzichte van de y as.
 int p2bcolumn;        // de locatie van de tweede bomb in de grid tenopzichte van de x as.
@@ -87,8 +90,6 @@ int p2by;           // by is de y coordinaat van de tweede geplaatste bomb.
 
 boolean p2boem = false;   // checkt of de geplaatste bomb al is ontploft.
 boolean p2bombdown = false; // checkt of de speler aan een bomb heeft geplaatst.
-
-boolean player2 = true;
 
 unsigned long p2startMillis;  // houd bij wanneer de bomb word geplaatst.
 unsigned long p2bombtimer;  // houd bij hoelang de bomb op de grond ligt.
@@ -326,7 +327,7 @@ void map(){
 		ir.run();
 	}
         
-    if(nunchuk.zButton==1 && bombdown==false && player2==false){  // Checkt of de z knop is ingedrukt en dat er nog geen bomb op de grond ligt.
+    if(nunchuk.zButton==1 && bombdown==false){  // Checkt of de z knop is ingedrukt en dat er nog geen bomb op de grond ligt.
 	  ir.sendCommand(50,0);
 	  ir.run();
 	  grid[row][column]=3;          // Zet op de positie van de character in de grid een bomb 
@@ -408,14 +409,19 @@ void wait (unsigned long howLong)
   unsigned long startedAt = millis();
   while(millis() - startedAt < howLong)
   {
-	  //zenden
+	   //zenden
 	  //  ir.sendCommand(10,0);
 	  // ir.run();
 	  //ontvangen
 	  ir.read();
+	  Serial.print("irread");
 	 switch (ir.getCommand())
 	 {
+	default:
+		 Serial.print("switch");
+		 break;
 	case 10:
+	Serial.print("test");
 		p2links();
 	break;
 		 
@@ -596,7 +602,6 @@ if (millis() >= p2CommandTime + 1000)//check the ir every 100 ms
 //PLAYER2
 //////////////////////////////////////////////////////////////////////////
 void p2links(){
-	//if(ontvanged links van player 2){
 	if (grid[p2row][p2column-1]==0 || grid[p2row][p2column-1]== 4 || grid[p2row][p2column-1]== 7) // Checkt of op de postie links van de character niks of een bom explosie zit.
 	{
 		tft.fillRect(p2y-20,p2x, 20, 20, BLUE);         // Tekent de character 20 pixels verder naar links.
@@ -608,8 +613,6 @@ void p2links(){
 		p2y=p2y-20;							// Zet de coordinaten van de character 20 naar links.
 		p2column=p2column-1;                  // Past de postie van de character aan op de grid.
 	}
-	
-	//}
 }
 
 void p2rechts(){
